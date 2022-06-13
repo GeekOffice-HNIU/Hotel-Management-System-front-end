@@ -1,0 +1,49 @@
+@font-face {
+    font-family: 'PingFang SC Regular';
+    src: url('https://www.apple.com.cn/wss/fonts/SF-Pro-SC/v1/PingFangSC-Regular.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'PingFang SC Semibold';
+    src: url('https://www.apple.com.cn/wss/fonts/SF-Pro-SC/v1/PingFangSC-Semibold.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'PingFang SC Light';
+    src: url('https://www.apple.com.cn/wss/fonts/SF-Pro-SC/v1/PingFangSC-Light.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'SF Pro Icon Regular';
+    src: url('https://www.apple.com.cn/wss/fonts/SF-Pro-Icons/v3/sf-pro-icons_regular.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'SF Pro Icon Light';
+    src: url('https://www.apple.com.cn/wss/fonts/SF-Pro-Icons/v3/sf-pro-icons_light.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'SF Pro Text Regular';
+    src: url('https://www.apple.com.cn/wss/fonts/SF-Pro-Text/v3/sf-pro-text_regular.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'SF Pro Text Semibold';
+    src: url('https://www.apple.com.cn/wss/fonts/SF-Pro-Text/v3/sf-pro-text_semibold.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'SF Pro Display Regular';
+    src: url('https://www.apple.com.cn/wss/fonts/SF-Pro-Display/v3/sf-pro-display_regular.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'SF Pro Display Semibold';
+    src: url('https://www.apple.com.cn/wss/fonts/SF-Pro-Display/v3/sf-pro-display_semibold.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'SF Pro Display Medium';
+    src: url('https://www.apple.com/wss/fonts/SF-Pro-Display/v1/sf-pro-display_medium.woff2') format('woff2');
+}
