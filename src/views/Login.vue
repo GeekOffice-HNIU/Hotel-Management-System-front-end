@@ -58,8 +58,9 @@
 <script>
 import { reactive, ref, unref } from "vue";
 import axios from "axios";
-import {useRouter} from "vue-router";
+import { useRouter } from "vue-router";
 import localStorage from "../utils/localStorage";
+import { useStore } from 'vuex';
 // import axios from "../request/axios";
 export default {
   setup() {
@@ -73,8 +74,8 @@ export default {
     let loginTitle = '';
     let loginIdentify = '管理员';
     const storage = localStorage;
-
     const router = useRouter();
+    const store = useStore();
 
     const formRules = {
       username: [
@@ -112,7 +113,8 @@ export default {
         if (res.data.status === 0) {
           console.log("[INFO] 登录成功");
           storage.setCookie("login",loginFormData.username);
-          router.push('/');
+          store.commit("setLogin",loginFormData.username);
+          router.go(-1);
         } else {
           console.log("[INFO] 登录失败");
         }

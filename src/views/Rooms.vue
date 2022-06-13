@@ -7,10 +7,33 @@
       <span>大中之大。</span>
     </div>
     <div id="btn">
-      <el-button id="orderBtn" round="true" auto-insert-space> 现在预定 </el-button>
+      <el-button id="orderBtn" round="true" auto-insert-space @click="bookRoom"> 现在预定 </el-button>
     </div>
   </el-container>
 </template>
+
+<script>
+// import { reactive, ref, unref } from "vue";
+import { useStore } from "vuex";
+import { useRouter } from "vue-router";
+
+export default {
+  setup() {
+    const router = useRouter();
+    const store = useStore();
+
+    const bookRoom = () => {
+      console.log("[INFO] bookRoom");
+      let loginState = store.state.loginStatus.isLogin;
+      if (!loginState) router.push("/login");
+      else router.push("/book");
+    };
+    return {
+      bookRoom
+    };
+  }
+}
+</script>
 
 <style lang="less">
 html,
