@@ -1,40 +1,40 @@
-# This is a basic workflow to help you get started with Actions
-name: deploy
+# 该workflow的名称，可以随意填写
+name: Build And Deploy To Github Pages
 
-# Controls when the action will run. 
+# workflow的触发事件，这里代表main分支的push事件触发
 on:
-  # Triggers the workflow on push or pull request events but only for the main branch
   push:
-    branches:
-      - master
-  pull_request:
-    branches:
-      - master
+    branches: [ master ]
 
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+# 任务
 jobs:
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
-    runs-on: ubuntu-latest
+  # build-and-deploy 为任务的ID
+  build-and-deploy:
+    # 运行所需要的环境
+    runs-on: ubuntu-latest 
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
-      
-      - name: Install & Build # 執行指令
+      # 步骤名
+      - name: Checkout
+        # 使用的actions脚本，这里是官方提供的获取源码脚本
+        uses: actions/checkout@v2.3.1
+        # 这个为使用 JamesIves/github-pages-deploy-action脚本所需要的配置
+        with:
+          persist-credentials: false
+
+      # 执行npm脚本打包项目
+      - name: Install and Build
         run: |
           npm install
-          npm run build 
-          
-      # Runs a single command using the runners shell
+          npm run build
+      
+      # 执行JamesIves/github-pages-deploy-action将项目发布到Github Pages
       - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@releases/v4
+        uses: JamesIves/github-pages-deploy-action@3.7.1
         with:
-          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }} # Settings > Secret 建立的 ACCESS_TOKEN，推同個 repo 的話可以不需要
-          BRANCH: gh-pages # deploy 到 gh-pages 這個分支
-          FOLDER: dist # build 後的資料夾
+          # 该workflow需要操作repo，因此需要一个**，下面会讲到如何获取这个**
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          # 发布到的分支
+          BRANCH: gh-pages
+          # 要发布的文件夹
+          FOLDER: dist
