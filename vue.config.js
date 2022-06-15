@@ -16,6 +16,7 @@ module.export = {
             importStyle: "less",
             useSource: true,
         }),
+        publicPath: '/Hotel-Management-System-front-end/',
     ],
     // devServer: {
     //     host: "localhost",
