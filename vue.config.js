@@ -5,6 +5,7 @@ const ElementPlus = require("unplugin-element-plus/webpack");
 const { ElementPlusResolver } = require("unplugin-vue-components/resolvers");
 
 module.export = {
+    publicPath: '/Hotel-Management-System-front-end/',
     plugins: [
         AutoImport({
             resolvers: [ElementPlusResolver()],
@@ -16,7 +17,6 @@ module.export = {
             importStyle: "less",
             useSource: true,
         }),
-        publicPath: '/Hotel-Management-System-front-end/',
     ],
     // devServer: {
     //     host: "localhost",
